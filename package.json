@@ -1,0 +1,22 @@
+{
+  "name": "zeit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdlrobson/zeitxperiment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdlrobson/zeitxperiment/issues"
+  },
+  "homepage": "https://github.com/jdlrobson/zeitxperiment#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
