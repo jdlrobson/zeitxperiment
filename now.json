@@ -3,7 +3,7 @@
   "builds": [
     { "src": "index.js", "use": "@now/node-server" },
     { "src": "*.png", "use": "@now/static" },
-    { "src": "images/*", "use": "@now/static" }
+    { "src": "images/.*", "use": "@now/static" }
   ],
   "routes": [
     { "src": "/.*-bundle.js", "dest": "index.js" },
