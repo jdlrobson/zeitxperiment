@@ -1,2 +1,3 @@
 require( 'babel-core/register' );
-require( './main.js' );
+const app = require( './main.js' );
+app.listen();

@@ -8,4 +8,4 @@ app.get('/destination/:title', (req, res) => {
 app.get('*', (req, res) => {
   res.send('Hello from Express.js!');
 })
-app.listen();
+module.exports = app;
