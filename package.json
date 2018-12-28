@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jdlrobson/zeitxperiment#readme",
   "dependencies": {
     "babel-core": "^6.26.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "node-fetch": "^2.3.0"
   }
 }
