@@ -2,12 +2,13 @@ const express = require('express');
 const app = express();
 const fetch = require('node-fetch');
 
-function proxyFetch( res, path, type ) {
+function proxyFetch( res, path, type, age=43200 ) {
     return fetch( `https://nomad.wmflabs.org${path}` ).then((resp) => {
         res.status(resp.status);
         return resp.text();
     }).then((text) => {
       res.setHeader( 'Content-Type', type );
+      res.setHeader( 'Cache-Control', `s-maxage=${age}` );
       res.send(text);
     });
 }
