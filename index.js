@@ -26,6 +26,15 @@ app.get('/main-bundle.js', (req, res) => {
 app.get('/api/*', (req, res) => {
     proxyFetch( res, req.url, 'application/json' );
 });
+app.get('/destination/*/sight/*', (req, res) => {
+    const title = req.params[0].replace( /\//g, '%2F' );
+    const sight = req.params[1].replace( /\//g, '%2F' );
+    proxyFetch( res, `/destination/${title}/sight/${sight}`, 'text/html' );
+});
+app.get('/destination/*', (req, res) => {
+    const title = req.params[0].replace( /\//g, '%2F' );
+    proxyFetch( res, `/destination/${title}`, 'text/html' );
+});
 app.get('*', (req, res) => {
   proxyFetch( res, req.params[0], 'text/html' );
 });
