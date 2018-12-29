@@ -8,6 +8,7 @@
   "routes": [
     { "src": "/.*-bundle.js", "dest": "index.js" },
     { "src": "/main.css", "dest": "index.js" },
+    { "src": "/api/wikimedia/en.wikivoyage.org/*", "dest": "index.js" },
     { "src": "/trips/(.*)", "dest": "index.js" },
     { "src": "/trips/(.*)/(.*)", "dest": "index.js" },
     { "src": "/destination/(.*)", "dest": "index.js" },
