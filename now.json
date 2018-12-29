@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     { "src": "index.js", "use": "@now/node-server" },
-    { "src": "*.png", "use": "@now/static",
+    { "src": "*", "use": "@now/static",
       "config": { "distDir": "public" }
     }
   ],
