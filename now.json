@@ -6,6 +6,7 @@
   ],
   "routes": [
     { "src": "/.*-bundle.js", "dest": "index.js" },
+    { "src": "/page.css", "dest": "index.js" },
     { "src": "/main.css", "dest": "index.js" },
     { "src": "/api/(.*)", "dest": "index.js" },
     { "src": "/trips/(.*)", "dest": "index.js" },

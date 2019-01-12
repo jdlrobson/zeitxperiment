@@ -14,7 +14,7 @@ function proxyFetch( res, path, type, age=43200 ) {
 }
 
 app.use( '/', express.static( __dirname + '/public' ) );
-app.get('/main.css', (req, res) => {
+app.get('/*.css', (req, res) => {
     proxyFetch( res, req.url, 'text/css' );
 });
 app.get('/sw-bundle.js', (req, res) => {
