@@ -35,6 +35,9 @@ app.get('/destination/*', (req, res) => {
     const title = req.params[0].replace( /\//g, '%2F' );
     proxyFetch( res, `/destination/${title}`, 'text/html' );
 });
+app.get('/*.json', (req, res) => {
+    proxyFetch( res, req.url, 'application/json' );
+});
 app.get('*', (req, res) => {
   proxyFetch( res, req.params[0], 'text/html' );
 });
