@@ -3,7 +3,8 @@ const app = express();
 const fetch = require('node-fetch');
 
 function proxyFetch( res, path, type, age=43200 ) {
-    return fetch( `https://nomad.wmflabs.org${path}` ).then((resp) => {
+    const url = `https://nomad.wmflabs.org${path}` ;
+    return fetch(url).then((resp) => {
         res.status(resp.status);
         return resp.text();
     }).then((text) => {
@@ -27,13 +28,12 @@ app.get('/api/*', (req, res) => {
     proxyFetch( res, req.url, 'application/json' );
 });
 app.get('/destination/*/sight/*', (req, res) => {
-    const title = req.params[0].replace( /\//g, '%2F' );
-    const sight = req.params[1].replace( /\//g, '%2F' );
+    const title = encodeURIComponent( req.params[0] );
+    const sight = encodeURIComponent( req.params[1] );
     proxyFetch( res, `/destination/${title}/sight/${sight}`, 'text/html' );
 });
 app.get('/destination/*', (req, res) => {
-    const title = req.params[0].replace( /\//g, '%2F' );
-    proxyFetch( res, `/destination/${title}`, 'text/html' );
+    proxyFetch( res, `/destination/${encodeURIComponent(req.params[0])}`, 'text/html' );
 });
 app.get('/*.json', (req, res) => {
     proxyFetch( res, req.url, 'application/json' );
