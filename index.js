@@ -3,14 +3,17 @@ const app = express();
 const fetch = require('node-fetch');
 
 function proxyFetch( res, path, type, age=43200 ) {
-    const url = `https://nomad.wmflabs.org${path}` ;
-    return fetch(url).then((resp) => {
+    const url = `https://nomad.wmflabs.org${path}`;
+    return fetch( url ).then((resp) => {
         res.status(resp.status);
         return resp.text();
-    }).then((text) => {
+    } ).then((text) => {
       res.setHeader( 'Content-Type', type );
       res.setHeader( 'Cache-Control', `s-maxage=${age}` );
       res.send(text);
+    } ).catch((e) => {
+        res.status(500);
+        res.send(`Error proxying ${url}: ${e}`);
     });
 }
 
